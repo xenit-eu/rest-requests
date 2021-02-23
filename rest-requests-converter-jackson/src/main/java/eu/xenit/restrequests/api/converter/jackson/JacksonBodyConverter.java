@@ -13,18 +13,18 @@ import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicReference;
 
-public class JacksonObjectMapper implements HttpBodyConverter {
+public class JacksonBodyConverter implements HttpBodyConverter {
 
     private final ObjectMapper objectMapper;
     private final List<MediaType> supportedMediaTypes;
 
-    public JacksonObjectMapper() {
+    public JacksonBodyConverter() {
         this(JsonMapper.builder()
                 .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
                 .build());
     }
 
-    public JacksonObjectMapper(ObjectMapper objectMapper) {
+    public JacksonBodyConverter(ObjectMapper objectMapper) {
         this.objectMapper = objectMapper;
         this.supportedMediaTypes = List.of(MediaType.APPLICATION_JSON, new MediaType("application", "*+json"));
     }

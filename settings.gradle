@@ -3,7 +3,7 @@ rootProject.name = 'rest-requests'
 include 'rest-requests-api'
 include 'rest-requests'
 
-include 'rest-requests-mapper-spi'
-include 'rest-requests-mapper-jackson'
+include 'rest-requests-converter-spi'
+include 'rest-requests-converter-jackson'
 
 include 'rest-requests-functional-test'

@@ -8,8 +8,6 @@ import java.util.Collection;
  */
 public interface HttpBodyConverter {
 
-
-
     <T> boolean canRead(DeserializationContext context, Class<T> type);
     <T> T read(DeserializationContext context, Class<T> type) throws ConverterException;
 

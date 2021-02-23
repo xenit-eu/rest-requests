@@ -6,9 +6,8 @@ apply from: "${rootDir}/gradle/publish.gradle"
 
 dependencies {
     api project(":rest-requests-api")
-    api project(":rest-requests-mapper-spi")
+    api project(":rest-requests-converter-spi")
 
-    //implementation "org.slf4j:slf4j-api:${slf4jVersion}"
     implementation "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}"
 
     runtimeOnly project(":rest-requests")
