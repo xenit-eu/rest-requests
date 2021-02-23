@@ -19,7 +19,7 @@ public class StringConverter implements HttpBodyConverter {
      *
      * This is specified as the default for text/* by RFC2616
      *
-     * @see <a href="https://tools.ietf.org/html/rfc2616#section-3.7.1>Section 3.7.1 of [RFC2616]</a>
+     * @see <a href="https://tools.ietf.org/html/rfc2616#section-3.7.1">Section 3.7.1 of [RFC2616]</a>
      */
     public StringConverter() {
         this(StandardCharsets.ISO_8859_1);
