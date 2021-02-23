@@ -1,0 +1,14 @@
+configure(subprojects) {
+    plugins.withType(JavaPlugin) {
+//        apply from: "${rootDir}/gradle/publish.gradle"
+//
+        java {
+            withSourcesJar()
+            withJavadocJar()
+        }
+//
+        repositories {
+            mavenCentral()
+        }
+    }
+}
