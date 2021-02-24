@@ -6,9 +6,9 @@ apply from: "${rootDir}/gradle/publish.gradle"
 
 dependencies {
     api project(":rest-requests-api")
-    api project(":rest-requests-mapper-spi")
+    api project(":rest-requests-converter-spi")
 
-    runtimeOnly project(":rest-requests-mapper-jackson")
+    runtimeOnly project(":rest-requests-converter-jackson")
 
     testImplementation project(":rest-requests-functional-test")
 }

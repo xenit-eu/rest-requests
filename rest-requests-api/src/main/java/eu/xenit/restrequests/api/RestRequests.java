@@ -11,7 +11,7 @@ public class RestRequests {
                 .sorted()
                 .findFirst().orElseThrow(() -> {
                     String message = String.format("No %s implementations found. "
-                                    + "Add 'eu.xenit:rest-requests' on the runtime classpath",
+                                    + "Add 'eu.xenit.restrequests:rest-requests' on the runtime classpath",
                             RestRequestBuilderFactory.class);
                     throw new RuntimeException(message);
                 })
