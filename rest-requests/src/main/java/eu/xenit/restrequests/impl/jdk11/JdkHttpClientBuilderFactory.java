@@ -1,9 +1,9 @@
 package eu.xenit.restrequests.impl.jdk11;
 
-import eu.xenit.restrequests.api.ReactiveRestBuilder;
-import eu.xenit.restrequests.api.RestRequestBuilderFactory;
+import eu.xenit.restrequests.api.reactive.ReactiveRestBuilder;
+import eu.xenit.restrequests.api.reactive.ReactiveRestRequestBuilderFactory;
 
-public class JdkHttpClientBuilderFactory implements RestRequestBuilderFactory {
+public class JdkHttpClientBuilderFactory implements ReactiveRestRequestBuilderFactory {
 
     @Override
     public ReactiveRestBuilder<?> createBuilder() {

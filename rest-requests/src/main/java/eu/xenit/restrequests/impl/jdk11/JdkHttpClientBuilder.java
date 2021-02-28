@@ -1,6 +1,6 @@
 package eu.xenit.restrequests.impl.jdk11;
 
-import eu.xenit.restrequests.api.filters.ReactiveRestClientFilter;
+import eu.xenit.restrequests.api.filter.RestClientFilter;
 import eu.xenit.restrequests.impl.BaseBuilder;
 import eu.xenit.restrequests.api.converter.HttpBodyConverter;
 import java.net.http.HttpClient;
@@ -16,7 +16,7 @@ class JdkHttpClientBuilder extends BaseBuilder<JdkHttpClientBuilder> {
     private Duration connectTimeout = Duration.ofSeconds(10);
 
     private final Set<HttpBodyConverter> httpBodyConverters = new LinkedHashSet<>();
-    private final Set<ReactiveRestClientFilter> filters = new LinkedHashSet<>();
+    private final Set<RestClientFilter> filters = new LinkedHashSet<>();
 
     private boolean followRedirects = true;
 
@@ -44,7 +44,7 @@ class JdkHttpClientBuilder extends BaseBuilder<JdkHttpClientBuilder> {
     }
 
     @Override
-    public JdkHttpClientBuilder filters(Collection<? extends ReactiveRestClientFilter> filters) {
+    public JdkHttpClientBuilder filters(Collection<? extends RestClientFilter> filters) {
         this.filters.clear();
         this.filters.addAll(filters);
         return this;

@@ -3,6 +3,7 @@ package eu.xenit.restrequests.impl.converter;
 import eu.xenit.restrequests.api.converter.ConverterException;
 import eu.xenit.restrequests.api.converter.HttpBodyConverter;
 import eu.xenit.restrequests.api.http.MediaType;
+import java.io.IOException;
 import java.util.Collection;
 import java.util.List;
 
@@ -17,7 +18,11 @@ public class ByteArrayConverter implements HttpBodyConverter {
 
     @Override
     public <T> T read(DeserializationContext context, Class<T> type) throws ConverterException {
-        return type.cast(context.getSource());
+        try {
+            return type.cast(context.getInputStream().readAllBytes());
+        } catch (IOException e) {
+            throw new ConverterException(e);
+        }
     }
 
     @Override

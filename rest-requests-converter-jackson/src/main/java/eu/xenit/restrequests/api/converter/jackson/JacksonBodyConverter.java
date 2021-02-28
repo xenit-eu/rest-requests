@@ -82,7 +82,7 @@ public class JacksonBodyConverter implements HttpBodyConverter {
         Objects.requireNonNull(type, "Argument 'type' cannot be null");
 
         try {
-            return objectMapper.readValue(context.getSource(), type);
+            return objectMapper.readValue(context.getInputStream(), type);
         } catch (IOException ex) {
             throw new ConverterException(ex);
         }

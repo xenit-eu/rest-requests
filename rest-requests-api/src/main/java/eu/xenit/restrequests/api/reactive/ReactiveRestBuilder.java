@@ -1,7 +1,7 @@
-package eu.xenit.restrequests.api;
+package eu.xenit.restrequests.api.reactive;
 
 import eu.xenit.restrequests.api.converter.HttpBodyConverter;
-import eu.xenit.restrequests.api.filters.ReactiveRestClientFilter;
+import eu.xenit.restrequests.api.filter.RestClientFilter;
 import java.time.Duration;
 import java.util.Collection;
 
@@ -30,7 +30,7 @@ public interface ReactiveRestBuilder<B extends ReactiveRestBuilder<B>> {
     B defaultConverters();
 
 
-    B filters(Collection<? extends ReactiveRestClientFilter> filters);
+    B filters(Collection<? extends RestClientFilter> filters);
 
     B defaultFilters();
 

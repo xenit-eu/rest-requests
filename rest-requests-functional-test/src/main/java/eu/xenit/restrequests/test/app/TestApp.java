@@ -27,6 +27,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -130,12 +131,6 @@ public class TestApp {
         response.sendRedirect("test-get");
     }
 
-//    @RequestMapping(value = '/testParams', produces = 'application/json')
-//    String testParams(@RequestParam MultiValueMap<String, String> params) {
-//        println JsonOutput.prettyPrint(JsonOutput.toJson(params))
-//        return new JsonBuilder(params).toString()
-//    }
-
     @ResponseBody
     @GetMapping(value = "/test-headers", produces = "application/json")
     MultiValueMap<String, String> echoHeaders (@RequestHeader MultiValueMap<String, String> headers) {
@@ -150,16 +145,6 @@ public class TestApp {
             return new ResponseEntity<String>("welcome", HttpStatus.valueOf(200));
         }
     }
-
-//    @RequestMapping(value = '/testForm', method = RequestMethod.POST, produces = 'text/plain')
-//    String testForm(@RequestBody MultiValueMap<String, String> formData) {
-//        return new JsonBuilder(formData).toString()
-//    }
-//
-//    @RequestMapping(value = "/printContentType", produces = "text/plain")
-//    String printContentType(@RequestHeader(value = "Content-Type") String contentType) {
-//        return contentType;
-//    }
 
     @RequestMapping(value = "/test-accept-contenttype", produces = "text/plain")
     ResponseEntity<String> acceptContentType(
@@ -185,8 +170,8 @@ public class TestApp {
         return new ResponseEntity<>(body, headers, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/test-status/{status}")
-    ResponseEntity<String> testStatusCode(@RequestParam int statusCode) {
+    @RequestMapping(value = "/test-status/{statusCode}")
+    ResponseEntity<String> testStatusCode(@PathVariable int statusCode) {
         return new ResponseEntity<>(HttpStatus.valueOf(statusCode));
     }
 }

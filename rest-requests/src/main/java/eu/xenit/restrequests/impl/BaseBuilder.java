@@ -1,9 +1,9 @@
 package eu.xenit.restrequests.impl;
 
-import eu.xenit.restrequests.api.ReactiveRestClient;
-import eu.xenit.restrequests.api.ReactiveRestBuilder;
+import eu.xenit.restrequests.api.reactive.ReactiveRestClient;
+import eu.xenit.restrequests.api.reactive.ReactiveRestBuilder;
 import eu.xenit.restrequests.api.converter.HttpBodyConverter;
-import eu.xenit.restrequests.api.filters.ReactiveRestClientFilter;
+import eu.xenit.restrequests.api.filter.RestClientFilter;
 import java.util.ServiceLoader;
 import java.util.ServiceLoader.Provider;
 import java.util.stream.Collectors;
@@ -34,7 +34,7 @@ public abstract class BaseBuilder<B extends BaseBuilder<B>> implements ReactiveR
      */
     @Override
     public B defaultFilters() {
-        var objectMappers = ServiceLoader.load(ReactiveRestClientFilter.class).stream()
+        var objectMappers = ServiceLoader.load(RestClientFilter.class).stream()
                 .map(Provider::get)
                 .sorted((mapper1, mapper2) -> 0)
                 .collect(Collectors.toList());

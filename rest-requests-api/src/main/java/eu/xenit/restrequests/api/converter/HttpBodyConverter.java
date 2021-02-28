@@ -1,6 +1,7 @@
 package eu.xenit.restrequests.api.converter;
 
 import eu.xenit.restrequests.api.http.MediaType;
+import java.io.InputStream;
 import java.util.Collection;
 
 /**
@@ -46,6 +47,8 @@ public interface HttpBodyConverter {
         MediaType getContentType();
 
         byte[] getSource();
+
+        InputStream getInputStream();
     }
 
     interface SerializationContext {
