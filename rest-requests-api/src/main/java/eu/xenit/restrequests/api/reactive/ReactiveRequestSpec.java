@@ -28,11 +28,11 @@ public interface ReactiveRequestSpec {
         return this.response().body(type);
     }
 
-    default CompletableFuture<HttpResponse<Void>> execute() {
+    default CompletableFuture<? extends HttpResponse<Void>> execute() {
         return this.response().execute();
     }
 
-    default <TResponse> CompletableFuture<HttpResponse<TResponse>> execute(Class<TResponse> type) {
+    default <TResponse> CompletableFuture<? extends HttpResponse<TResponse>> execute(Class<TResponse> type) {
         return this.response().body(type).execute();
     }
 }

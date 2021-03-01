@@ -1,0 +1,24 @@
+plugins {
+    id 'java-library'
+}
+
+apply from: "${rootDir}/gradle/publish.gradle"
+
+dependencies {
+    api project(":rest-requests-api")
+
+    api platform("org.springframework.boot:spring-boot-dependencies:${springBootVersion}")
+    api "org.springframework:spring-webflux"
+
+    implementation project(":rest-requests-client-spi")
+
+    testRuntimeOnly project(":rest-requests")
+    testRuntimeOnly project(":rest-requests-converter-jackson")
+    testRuntimeOnly 'io.projectreactor.netty:reactor-netty'
+
+    testImplementation project(":rest-requests-functional-test")
+}
+
+test {
+    useJUnitPlatform()
+}

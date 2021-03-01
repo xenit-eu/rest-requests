@@ -128,6 +128,14 @@ public class MediaType {
     }
 
     /**
+     * Returns all media type parameters in a read-only Map
+     *
+     * @return an immutable map with all parameters, never {@code null}
+     */
+    public Map<String, String> getParameters() {
+        return Collections.unmodifiableMap(this.parameters);
+    }
+    /**
      * Return the quality factor, as indicated by a {@code q} parameter, if any. Defaults to {@code 1.0}.
      *
      * @return the quality factor as double value

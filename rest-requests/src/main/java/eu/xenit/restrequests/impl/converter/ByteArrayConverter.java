@@ -12,6 +12,12 @@ public class ByteArrayConverter implements HttpBodyConverter {
     private static final List<MediaType> MEDIA_TYPES = List.of(MediaType.APPLICATION_OCTET_STREAM);
 
     @Override
+    public int getOrder() {
+        return -200;
+    }
+
+
+    @Override
     public <T> boolean canRead(DeserializationContext context, Class<T> type) {
         return isByteArray(type);
     }
@@ -43,4 +49,5 @@ public class ByteArrayConverter implements HttpBodyConverter {
     private static <T> boolean isByteArray(Class<T> type) {
         return type.isArray() && byte.class.isAssignableFrom(type.getComponentType());
     }
+
 }

@@ -1,6 +1,11 @@
 rootProject.name = 'rest-requests'
 
 include 'rest-requests-api'
+
+include 'rest-requests-client-spi'
+include 'rest-requests-client-jdk11-httpclient'
+include 'rest-requests-client-spring-webclient'
+
 include 'rest-requests'
 
 include 'rest-requests-converter-spi'

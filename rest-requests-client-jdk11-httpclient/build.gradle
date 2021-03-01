@@ -7,11 +7,11 @@ apply from: "${rootDir}/gradle/publish.gradle"
 dependencies {
     api project(":rest-requests-api")
 
-    implementation project(":rest-requests-converter-spi")
     implementation project(":rest-requests-client-spi")
 
-    runtimeOnly project(":rest-requests-converter-jackson")
-
+    testRuntimeOnly project(":rest-requests")
+    testRuntimeOnly project(":rest-requests-converter-jackson")
+    
     testImplementation project(":rest-requests-functional-test")
 }
 

@@ -5,5 +5,5 @@ import java.util.concurrent.CompletableFuture;
 
 public interface ReactiveResponseSpec<TResponse> {
     <NewTResponse> ReactiveResponseSpec<NewTResponse> body(Class<NewTResponse> type);
-    CompletableFuture<HttpResponse<TResponse>> execute();
+    CompletableFuture<? extends HttpResponse<TResponse>> execute();
 }

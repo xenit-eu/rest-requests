@@ -2,6 +2,7 @@ package eu.xenit.restrequests.api;
 
 import eu.xenit.restrequests.api.reactive.ReactiveRestBuilder;
 import eu.xenit.restrequests.api.reactive.ReactiveRestRequestBuilderFactory;
+import java.util.Comparator;
 import java.util.ServiceLoader;
 
 public class RestRequests {

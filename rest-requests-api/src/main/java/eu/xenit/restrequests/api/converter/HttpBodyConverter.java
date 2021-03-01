@@ -1,13 +1,14 @@
 package eu.xenit.restrequests.api.converter;
 
 import eu.xenit.restrequests.api.http.MediaType;
+import eu.xenit.restrequests.api.support.Ordered;
 import java.io.InputStream;
 import java.util.Collection;
 
 /**
  * An object mapper is used to serialize and deserialize a Java object to and from a String, byte[] or InputStream.
  */
-public interface HttpBodyConverter {
+public interface HttpBodyConverter extends Ordered {
 
     <T> boolean canRead(DeserializationContext context, Class<T> type);
     <T> T read(DeserializationContext context, Class<T> type) throws ConverterException;

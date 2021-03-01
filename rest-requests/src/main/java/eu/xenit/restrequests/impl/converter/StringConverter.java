@@ -33,6 +33,10 @@ public class StringConverter implements HttpBodyConverter {
         this.supportedMediaTypes = List.of(MediaType.TEXT_PLAIN, new MediaType("text", "*"));
     }
 
+    @Override
+    public int getOrder() {
+        return -100;
+    }
 
     @Override
     public <T> boolean canRead(DeserializationContext context, Class<T> type) {
